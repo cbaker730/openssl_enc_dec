@@ -1,2 +1,2 @@
 # openssl_enc_dec
-Commands to encrypt and decrypt a file with openssl
+Simple walkthrough for encrypting and decrypting a file with openssl
