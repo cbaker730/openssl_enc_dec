@@ -54,3 +54,5 @@ Assume the sender performing these operations has the recipient's public key and
 2. Decrypt the large file using the random key
 
 ```openssl enc -d -aes-256-cbc -in largefile.pdf.enc -out largefile.pdf -pass file:./bin.key -k "1"```
+
+![Process](https://github.com/cbaker730/openssl_enc_dec/blob/master/enc_dec.jpeg "Process")
