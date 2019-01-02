@@ -55,4 +55,11 @@ Assume the sender performing these operations has the recipient's public key and
 
 ```openssl enc -d -aes-256-cbc -in largefile.pdf.enc -out largefile.pdf -pass file:./bin.key -k "1"```
 
+
+
+---
+### OVERALL PROCESS VISUALIZATION
 ![Process](https://github.com/cbaker730/openssl_enc_dec/blob/master/enc_dec.jpeg "Process")
+
+
+TODO: Make a better process visualization
