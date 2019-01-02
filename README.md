@@ -4,16 +4,17 @@ Simple walkthrough for encrypting and decrypting a file with openssl
 
 ---
 ### GENERATE KEYS
+Assume the recipient is creating the keys and certificate and provides the public key and/or certificate to the sender, keeping the private key private.
 
-1. Generate keys and cert / pem
+1. Generate private key. Use a 4 to 1023 character passphrase.
 
 ```openssl genrsa -aes256 -out privkey.pem 2048```
 
-2. Generate public key
+2. Generate public key. You'll be prompted for the private key passphrase.
 
 ```openssl rsa -pubout -in privkey.pem -out pubkey.pem -outform PEM```
 
-3. Generate certificate
+3. Generate a certificate, if desired. You'll be prompted for the private key passphrase.
 
 ```openssl req -new -x509 -key privkey.pem -out certificate.pem```
 
@@ -21,12 +22,13 @@ Simple walkthrough for encrypting and decrypting a file with openssl
 
 ---
 ### ENCRYPT FILE
+Assume the sender performing these operations has the recipient's public key and/or certificate as well as the file they wish to encrypt.
 
-1. Normally, you would get the public key or certificate from the other party. In this exercise, we perform the encryption ourselves using the public key we created above and assume we do not have access to the private key. If a certificate you can extract the public key using this command:
+1. Normally, you would get the public key or certificate from the recipient. In this exercise, we perform the encryption as the sender using the public key we created above and assume we do not have access to the private key until the decryption phase. The following command extracts the public key from the certificate file if the public key was not provided to the sender.
 
 ```openssl x509 -pubkey -noout -in certificate.pem  > pubkeyextracted.pem```
 
-2. Generate the random key / password file for every file (use a new key every time). The key format is HEX because the base64 format adds newlines. 
+2. Generate a random key / password file (use a new key every time). Use HEX key format because base64 includes newlines which may affect the reading of the key file.
 
 ```openssl rand -hex -out key.bin 64```
 
