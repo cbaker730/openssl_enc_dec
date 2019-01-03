@@ -59,7 +59,7 @@ Assume the sender performing these operations has the recipient's public key and
 
 ---
 ### OVERALL PROCESS VISUALIZATION
-![Process](https://github.com/cbaker730/openssl_enc_dec/blob/master/enc_dec.jpeg "Process")
+![Process](https://github.com/cbaker730/openssl_enc_dec/blob/master/images/enc_dec.jpeg "Process")
 
 
 TODO: Make a better process visualization
